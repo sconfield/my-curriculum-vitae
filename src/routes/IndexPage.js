@@ -5,11 +5,41 @@ import { Window, TitleBar, Toolbar, SearchField } from 'react-desktop/macOs';
 import AtvImg from 'react-atv-img';
 import en from '../assets/github-en.png';
 import zh from '../assets/github-zh.png';
+import ReactTooltip from 'react-tooltip';
 
-function IndexPage() {
-  const doubleClickHandle = e=>{
-    alert("lalala");
+function IndexPage(props) {
+  const fileArr = [
+    {
+      tip: "<p>double click me</p><p>open the curriculum vitae</p>",
+      name: "zhangjing",
+      url: en
+    },
+    {
+      tip: "<p>双击我</p><p>打开简历</p>",
+      name: "张静",
+      url: zh
+    }
+  ];
+  const doubleClickHandle = (e)=>{
+    // TODO: internationalization
+    const language = e.currentTarget.id;
+    props.history.pushState(null, '/curriculumVitae');
   };
+  const createResumeFile = (item, idx)=>{
+    return (
+      <div className={styles.file}
+        onDoubleClick={doubleClickHandle}
+        data-tip={item.tip}
+        key={idx} id={"tip_"+idx}>
+        <AtvImg className={styles.fileIcon} layers={[item.url]} />
+        <label className={styles.fileFont}>{item.name}</label>
+      </div>
+    );
+  };
+
+  setTimeout(()=>{
+    document.querySelector('#tip_0').click();
+  }, 3000);
 
   return (
     <div className={styles.normal}>
@@ -19,15 +49,11 @@ function IndexPage() {
             <SearchField placeholder="Search" defaultValue="" />
           </Toolbar>
         </TitleBar>
-        <div className={styles.file} onDoubleClick={doubleClickHandle}>
-          <AtvImg className={styles.fileIcon} layers={[en]} />
-          <label className={styles.fileFont}>zhangjing</label>
-        </div>
-        <div className={styles.file} onDoubleClick={doubleClickHandle}>
-          <AtvImg className={styles.fileIcon} layers={[zh]} />
-          <label className={styles.fileFont}>张静</label>
-        </div>
+        {fileArr.map(createResumeFile)}
       </Window>
+      <ReactTooltip type="info" effect="solid" event="click"
+        delayShow={200} delayHide={800} html={true} />
+      {props.children}
     </div>
   );
 }
