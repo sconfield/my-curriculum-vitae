@@ -1,5 +1,13 @@
 
 html, body, :global(#root) {
   height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
+:global(#root) {
+  background-image: url(./assets/macos.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+}
