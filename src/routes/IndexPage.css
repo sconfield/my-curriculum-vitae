@@ -14,19 +14,11 @@
 }
 
 .file:hover {
-  background-color: #989898;
+  background-color: #CFD8DC;
   cursor: pointer;
 }
 
-.fileIcon1 {
-  background: url(../assets/github-en.png) no-repeat center 0;
-  height: 64px;
-  width: 64px;
-  margin: 10px auto 0 auto;
-}
-
-.fileIcon2 {
-  background: url(../assets/github-zh.png) no-repeat center 0;
+.fileIcon {
   height: 64px;
   width: 64px;
   margin: 10px auto 0 auto;

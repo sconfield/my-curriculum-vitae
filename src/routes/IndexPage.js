@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
 import { Window, TitleBar, Toolbar, SearchField } from 'react-desktop/macOs';
+import AtvImg from 'react-atv-img';
+import en from '../assets/github-en.png';
+import zh from '../assets/github-zh.png';
 
 function IndexPage() {
   const doubleClickHandle = e=>{
@@ -17,13 +20,11 @@ function IndexPage() {
           </Toolbar>
         </TitleBar>
         <div className={styles.file} onDoubleClick={doubleClickHandle}>
-          <div className={styles.fileIcon1}>
-          </div>
+          <AtvImg className={styles.fileIcon} layers={[en]} />
           <label className={styles.fileFont}>zhangjing</label>
         </div>
         <div className={styles.file} onDoubleClick={doubleClickHandle}>
-          <div className={styles.fileIcon2}>
-          </div>
+          <AtvImg className={styles.fileIcon} layers={[zh]} />
           <label className={styles.fileFont}>张静</label>
         </div>
       </Window>
