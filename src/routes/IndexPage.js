@@ -37,8 +37,17 @@ function IndexPage(props, context) {
     );
   };
 
+  /**
+   * if tip already, do not do it.
+   * if curriculum vitae route, do not do it.
+   * @type {[type]}
+   */
   setTimeout(()=>{
-    document.querySelector('#tip_0').click();
+    const tipDom = document.querySelector('[data-id="tooltip"]');
+    if(tipDom.getAttribute('class').indexOf('show') < 0
+      && props.location.pathname == '/') {
+      document.querySelector('#tip_0').click();
+    }
   }, 3000);
 
   return (
