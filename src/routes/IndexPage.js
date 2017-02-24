@@ -20,16 +20,6 @@ function IndexPage(props, context) {
       url: zh
     }
   ];
-  const doubleClickHandle = (e)=>{
-    // TODO: internationalization
-    const language = e.currentTarget.id;
-    context.router.push({
-      pathname: '/curriculumVitae',
-      query: {
-        language: language
-      }
-    });
-  };
   const createResumeFile = (item, idx)=>{
     return (
       <div className={styles.file}
@@ -55,10 +45,19 @@ function IndexPage(props, context) {
       document.querySelector('#tip_0').click();
     }
   };
-  setTimeout(()=>{
-    autoTip();
-    setInterval(autoTip, 8000);
-  }, 3000);
+  var automan = setInterval(autoTip, 3000);
+
+  const doubleClickHandle = (e)=>{
+    // TODO: internationalization
+    clearInterval(automan);
+    const language = e.currentTarget.id;
+    context.router.push({
+      pathname: '/curriculumVitae',
+      query: {
+        language: language
+      }
+    });
+  };
 
   return (
     <div className={styles.normal}>
