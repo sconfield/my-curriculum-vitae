@@ -10,12 +10,12 @@ import ReactTooltip from 'react-tooltip';
 function IndexPage(props, context) {
   const fileArr = [
     {
-      tip: "<p>double click me</p><p>open the curriculum vitae</p>",
+      tip: "<p>double click me</p><p>open the english</p><p>curriculum vitae</p>",
       name: "zhangjing",
       url: en
     },
     {
-      tip: "<p>双击我</p><p>打开简历</p>",
+      tip: "<p>双击我</p><p>打开中文简历</p>",
       name: "张静",
       url: zh
     }
@@ -45,7 +45,7 @@ function IndexPage(props, context) {
       document.querySelector('#tip_0').click();
     }
   };
-  var automan = setInterval(autoTip, 3000);
+  const automan = setInterval(autoTip, 6000);
 
   const doubleClickHandle = (e)=>{
     // TODO: internationalization
@@ -69,7 +69,7 @@ function IndexPage(props, context) {
         </TitleBar>
         {fileArr.map(createResumeFile)}
       </Window>
-      <ReactTooltip type="info" effect="solid" event="click mouseover"
+      <ReactTooltip type="info" effect="solid" event="click"
         delayShow={200} delayHide={300} html={true} />
       {props.children}
     </div>
