@@ -38,14 +38,16 @@ function IndexPage(props, context) {
    * if nothing active, do it.
    * @type {[type]}
    */
+  let switchTip = 0;
   const autoTip = ()=>{
     const tipDom = document.querySelector('[data-id="tooltip"]');
     if(tipDom.getAttribute('class').indexOf('show') < 0
       && props.location.pathname == '/') {
-      document.querySelector('#tip_0').click();
+      document.querySelector('#tip_' + switchTip%2).click();
+      switchTip++;
     }
   };
-  const automan = setInterval(autoTip, 6000);
+  const automan = setInterval(autoTip, 3000);
 
   const doubleClickHandle = (e)=>{
     // TODO: internationalization
