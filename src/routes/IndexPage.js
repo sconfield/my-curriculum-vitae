@@ -45,14 +45,19 @@ function IndexPage(props, context) {
   /**
    * if tip already, do not do it.
    * if curriculum vitae route, do not do it.
+   * if nothing active, do it.
    * @type {[type]}
    */
-  setTimeout(()=>{
+  const autoTip = ()=>{
     const tipDom = document.querySelector('[data-id="tooltip"]');
     if(tipDom.getAttribute('class').indexOf('show') < 0
       && props.location.pathname == '/') {
       document.querySelector('#tip_0').click();
     }
+  };
+  setTimeout(()=>{
+    autoTip();
+    setInterval(autoTip, 8000);
   }, 3000);
 
   return (
@@ -66,7 +71,7 @@ function IndexPage(props, context) {
         {fileArr.map(createResumeFile)}
       </Window>
       <ReactTooltip type="info" effect="solid" event="click mouseover"
-        delayShow={200} delayHide={800} html={true} />
+        delayShow={200} delayHide={300} html={true} />
       {props.children}
     </div>
   );
