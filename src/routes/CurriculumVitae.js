@@ -7,6 +7,8 @@ function CurriculumVitae(props, context) {
   const closeHandle = ()=>{
     context.router.push('/');
   };
+  const language = props.location.query.language;
+  console.log(language);
 
   return (
     <div className={styles.normal}>

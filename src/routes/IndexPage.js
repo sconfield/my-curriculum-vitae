@@ -23,7 +23,12 @@ function IndexPage(props, context) {
   const doubleClickHandle = (e)=>{
     // TODO: internationalization
     const language = e.currentTarget.id;
-    context.router.push('/curriculumVitae');
+    context.router.push({
+      pathname: '/curriculumVitae',
+      query: {
+        language: language
+      }
+    });
   };
   const createResumeFile = (item, idx)=>{
     return (
