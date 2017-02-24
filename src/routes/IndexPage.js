@@ -7,7 +7,7 @@ import en from '../assets/github-en.png';
 import zh from '../assets/github-zh.png';
 import ReactTooltip from 'react-tooltip';
 
-function IndexPage(props) {
+function IndexPage(props, context) {
   const fileArr = [
     {
       tip: "<p>double click me</p><p>open the curriculum vitae</p>",
@@ -23,7 +23,7 @@ function IndexPage(props) {
   const doubleClickHandle = (e)=>{
     // TODO: internationalization
     const language = e.currentTarget.id;
-    props.history.pushState(null, '/curriculumVitae');
+    context.router.push('/curriculumVitae');
   };
   const createResumeFile = (item, idx)=>{
     return (
@@ -51,7 +51,7 @@ function IndexPage(props) {
         </TitleBar>
         {fileArr.map(createResumeFile)}
       </Window>
-      <ReactTooltip type="info" effect="solid" event="click"
+      <ReactTooltip type="info" effect="solid" event="click mouseover"
         delayShow={200} delayHide={800} html={true} />
       {props.children}
     </div>
@@ -60,5 +60,9 @@ function IndexPage(props) {
 
 IndexPage.propTypes = {
 };
+
+IndexPage.contextTypes = {
+  router: React.PropTypes.object
+}
 
 export default connect()(IndexPage);

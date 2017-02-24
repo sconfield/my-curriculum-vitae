@@ -3,12 +3,10 @@ import { connect } from 'dva';
 import styles from './CurriculumVitae.css';
 import { Window, TitleBar } from 'react-desktop/macOs';
 
-function CurriculumVitae(props) {
+function CurriculumVitae(props, context) {
   const closeHandle = ()=>{
-    props.history.pushState(null, '/');
+    context.router.push('/');
   };
-
-  console.log(props);
 
   return (
     <div className={styles.normal}>
@@ -19,6 +17,10 @@ function CurriculumVitae(props) {
       </Window>
     </div>
   );
+}
+
+CurriculumVitae.contextTypes = {
+  router: React.PropTypes.object
 }
 
 function mapStateToProps() {
