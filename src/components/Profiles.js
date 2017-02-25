@@ -17,14 +17,14 @@ function Profiles(props) {
     </div>
   );
   const createBlog = (item, idx)=>(
-    <li key={"blog_"+idx}>
+    <li key={idx}>
       <a href={item.url} target="_blank">{item.name}</a>
       <em>{item.desc}</em>
     </li>
   );
-  const createList = (txt, idx)=>(
+  const createList = (text, idx)=>(
     <li key={idx}>
-      {txt}
+      {text}
     </li>
   );
 

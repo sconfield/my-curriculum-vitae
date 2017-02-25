@@ -1,22 +1,25 @@
 import React from 'react';
 import styles from './Careers.css';
-import { SegmentedControl, SegmentedControlItem } from 'react-desktop/macOs';
 
-function Careers() {
+function Careers(props) {
+  const company = props.msg;
+  const createDepth = (text, idx)=>(
+    <li key={idx}>{text}</li>
+  );
+  const createProject = (item, idx)=>(
+    <div key={idx}>
+      <h3>{item.name}</h3>
+      <p>{item.desc}</p>
+      <ul>
+        {item.depth.map(createDepth)}
+      </ul>
+    </div>
+  );
+
   return (
     <div className={styles.normal}>
-      Component: Careers
-      <SegmentedControl box>
-        <SegmentedControlItem title="dx">
-          content one
-        </SegmentedControlItem>
-        <SegmentedControlItem title="ultral power">
-          content two
-        </SegmentedControlItem>
-        <SegmentedControlItem title="asiainfo">
-          content three
-        </SegmentedControlItem>
-      </SegmentedControl>
+      <h2>{company.title}</h2>
+      {company.project.map(createProject)}
     </div>
   );
 }
