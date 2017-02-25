@@ -46,7 +46,7 @@ function CurriculumVitae(props, context) {
           </SegmentedControl>
         </Box>
         <Box padding="10px 30px" height="93%">
-          <Skills />
+          <Skills msg={words.skills} />
         </Box>
       </Window>
     </div>
