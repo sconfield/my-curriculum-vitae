@@ -5,6 +5,7 @@ import { Window, TitleBar, Box, SegmentedControl, SegmentedControlItem } from 'r
 import Profiles from '../components/Profiles.js';
 import Careers from '../components/Careers.js';
 import Skills from '../components/Skills.js';
+import Draggable from 'react-draggable';
 
 function CurriculumVitae(props, context) {
   // set language
@@ -34,21 +35,23 @@ function CurriculumVitae(props, context) {
 
   return (
     <div className={styles.normal}>
-      <Window chrome height="100%" width="100%">
-        <TitleBar title="zhangjing's Curriculum Vitae"
-          controls onCloseClick={closeHandle} />
-        <Box padding="10px 30px" height="93%">
-          <Profiles msg={words.profiles} />
-        </Box>
-        <Box padding="10px 30px" height="93%">
-          <SegmentedControl box className={styles.ctrlItem}>
-            {words.careers.map(createTab)}
-          </SegmentedControl>
-        </Box>
-        <Box padding="10px 30px" height="93%">
-          <Skills msg={words.skills} />
-        </Box>
-      </Window>
+      <Draggable>
+        <Window chrome height="100%" width="100%">
+          <TitleBar title="zhangjing's Curriculum Vitae"
+            controls onCloseClick={closeHandle} />
+          <Box padding="10px 30px" height="93%">
+            <Profiles msg={words.profiles} />
+          </Box>
+          <Box padding="10px 30px" height="93%">
+            <SegmentedControl box className={styles.ctrlItem}>
+              {words.careers.map(createTab)}
+            </SegmentedControl>
+          </Box>
+          <Box padding="10px 30px" height="93%">
+            <Skills msg={words.skills} />
+          </Box>
+        </Window>
+      </Draggable>
     </div>
   );
 }

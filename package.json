@@ -16,6 +16,7 @@
     "react-atv-img": "^0.1.1",
     "react-desktop": "^0.2.17",
     "react-dom": "^15.4.0",
+    "react-draggable": "^2.2.3",
     "react-tooltip": "^3.2.7"
   },
   "devDependencies": {

@@ -6,6 +6,7 @@ import AtvImg from 'react-atv-img';
 import en from '../assets/github-en.png';
 import zh from '../assets/github-zh.png';
 import ReactTooltip from 'react-tooltip';
+import Draggable from 'react-draggable';
 
 function IndexPage(props, context) {
   const fileArr = [
@@ -50,7 +51,6 @@ function IndexPage(props, context) {
   const automan = setInterval(autoTip, 3000);
 
   const doubleClickHandle = (e)=>{
-    // TODO: internationalization
     clearInterval(automan);
     const language = e.currentTarget.id;
     context.router.push({
@@ -61,16 +61,27 @@ function IndexPage(props, context) {
     });
   };
 
+  // when dragging do not tip.
+  const dragHandle = ()=>{
+    const tipDom = document.querySelector('.show[data-id="tooltip"]');
+    if(tipDom) {
+      const cls = tipDom.getAttribute('class').replace(/show/, ' ');
+      tipDom.setAttribute('class', cls);
+    }
+  };
+
   return (
     <div className={styles.normal}>
-      <Window chrome height="400px" width="600px">
-        <TitleBar title="sconfield's iMac" controls>
-          <Toolbar height="43" width="200px" horizontalAlignment="right">
-            <SearchField placeholder="Search" defaultValue="" />
-          </Toolbar>
-        </TitleBar>
-        {fileArr.map(createResumeFile)}
-      </Window>
+      <Draggable onDrag={dragHandle}>
+        <Window chrome height="400px" width="600px">
+          <TitleBar title="sconfield's iMac" controls>
+            <Toolbar height="43" width="200px" horizontalAlignment="right">
+              <SearchField placeholder="Search" defaultValue="" />
+            </Toolbar>
+          </TitleBar>
+          {fileArr.map(createResumeFile)}
+        </Window>
+      </Draggable>
       <ReactTooltip type="info" effect="solid" event="click"
         delayShow={200} delayHide={300} html={true} />
       {props.children}
