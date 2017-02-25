@@ -1,3 +1,18 @@
 
 .normal {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.normal label {
+  margin-right: 20px;
+}
+
+.normal input {
+  width: 250px;
+}
+
+.normal em {
+  margin-left: 20px;
 }

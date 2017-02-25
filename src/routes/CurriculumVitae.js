@@ -22,7 +22,8 @@ function CurriculumVitae(props, context) {
   return (
     <div className={styles.normal}>
       <Window chrome height="100%" width="100%">
-        <TitleBar title="zhangjing's Curriculum Vitae" controls onCloseClick={closeHandle} />
+        <TitleBar title="zhangjing's Curriculum Vitae"
+          controls onCloseClick={closeHandle} />
         <Box padding="10px 30px" height="93%">
           <Profiles msg={words.profiles} />
         </Box>
