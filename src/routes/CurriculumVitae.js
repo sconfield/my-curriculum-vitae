@@ -30,18 +30,8 @@ function CurriculumVitae(props, context) {
 
   // create skills. one skill equale one card.
   const createCard = (item, idx)=>{
-    // init card offset.
-    const card = {
-      center: true,
-      front: true,
-      putWhere: {
-        top: 100 * idx + 'px',
-        left: '100px'
-      }
-    };
-    props.resume.cards[idx] = card;
-
     // add card into skill.
+    const card = props.resume.cards[idx];
     const cardClassName = {
       [styles.card]: true,
       [styles.cardCenter]: card.center,
@@ -53,7 +43,7 @@ function CurriculumVitae(props, context) {
       <div key={idx} className={classnames(cardClassName)}
         style={card.putWhere}>
         <div className={styles.stageBox}
-          onClick={()=>{console.log('click card:',idx);}}>
+          onClick={()=>{props.dispatch({type: 'resume/turnCard', eq: idx});}}>
           <div className={classnames(styles.stage, styles.cardFront)}>
             <h3>{item.name}</h3>
             <img src={item.url} />

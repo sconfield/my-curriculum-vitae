@@ -360,11 +360,8 @@ export default {
       };
     },
     turnCard(state, action) {
-      console.log(action);
-      return {
-        ...state,
-
-      }
+      state.cards[action.eq].front = !state.cards[action.eq].front;
+      return {...state};
     },
     putAnyWhere(state) {
       return {
