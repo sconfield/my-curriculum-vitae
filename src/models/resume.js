@@ -1,6 +1,17 @@
 import html5 from '../assets/html5.jpg';
 import css3 from '../assets/css3.jpg';
 import javascript from '../assets/javascript.jpg';
+import nodejs from '../assets/nodejs.jpg';
+import vuejs from '../assets/vuejs.png';
+import reactjs from '../assets/react.png';
+import jquery from '../assets/jquery.jpg';
+import git from '../assets/git.jpg';
+import photoshop from '../assets/photoshop.jpg';
+import phonegap from '../assets/phonegap.jpg';
+
+const rootDom = document.querySelector('#root');
+const _half_x = rootDom.offsetWidth / 2 * 0.9;
+const _half_y = rootDom.offsetHeight / 2 * 0.8;
 
 export default {
   namespace: 'resume',
@@ -348,11 +359,69 @@ export default {
           name: 'javascript',
           desc: 'bibibi',
           url: javascript
+        },
+        {
+          name: 'nodejs',
+          desc: 'bibibi',
+          url: nodejs
+        },
+        {
+          name: 'vuejs',
+          desc: 'bibibi',
+          url: vuejs
+        },
+        {
+          name: 'reactjs',
+          desc: 'bibibi',
+          url: reactjs
+        },
+        {
+          name: 'jquery',
+          desc: 'bibibi',
+          url: jquery
+        },
+        {
+          name: 'git',
+          desc: 'bibibi',
+          url: git
+        },
+        {
+          name: 'photoshop',
+          desc: 'bibibi',
+          url: photoshop
+        },
+        {
+          name: 'phonegap',
+          desc: 'bibibi',
+          url: phonegap
         }
       ]
     }
   },
   reducers: {
+    initCards(state) {
+      let line = 1;
+      let count = 1;
+      for (let i = 0; i < state.zh.skills.length; i++) {
+        const card = {
+          center: true,
+          front: true,
+          putWhere: {
+            top: 100*count + 'px',
+            left: _half_x*2 - 200*line,
+            transform: 'rotate(0deg)'
+          }
+        };
+        state.cards[i] = card;
+        if (count%5 == 0) {
+          line++;
+          count = 1;
+        } else {
+          count++;
+        }
+      }
+      return {...state};
+    },
     selectTab(state, action) {
       return {
         ...state,
@@ -364,11 +433,55 @@ export default {
       return {...state};
     },
     putAnyWhere(state) {
-      return {
-        ...state
+      // put all cards to any where
+      for (let i = 0; i < state.cards.length; i++) {
+        const card = state.cards[i];
+        card.putWhere['transform'] = 'rotate('+Math.random()*360+'deg)';
+        const anyOne = Math.random();
+        const anyTwo = Math.random();
+        let _any_x, _any_y;
+        switch (i%4) {
+          case 0:
+            _any_x = _half_x * anyOne;
+            _any_y = _half_y * anyTwo;
+            break;
+          case 1:
+            _any_x = _half_x * (anyOne+1);
+            _any_y = _half_y * anyTwo;
+            break;
+          case 2:
+            _any_x = _half_x * anyOne;
+            _any_y = _half_y * (anyTwo+1);
+            break;
+          case 3:
+            _any_x = _half_x * (anyOne+1);
+            _any_y = _half_y * (anyTwo+1);
+            break;
+          default:
+            console.log('sconfield');
+        }
+
+        const limitX = _half_x*2 - 150;
+        const limitY = _half_y*2 - 200;
+        if (_any_x > limitX) {
+          _any_x = _any_x - limitX;
+        }
+        if (_any_y > limitY) {
+          _any_y = _any_y - limitY;
+        }
+
+        card.putWhere.left = _any_x + 'px';
+        card.putWhere.top = _any_y + 'px';
+
       }
+
+      return {...state};
     }
   },
   effects: {},
-  subscriptions: {},
+  subscriptions: {
+    setup(props) {
+      props.dispatch({type: 'initCards'});
+    }
+  }
 };

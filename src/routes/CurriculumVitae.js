@@ -40,8 +40,8 @@ function CurriculumVitae(props, context) {
     };
 
     return(
-      <div key={idx} className={classnames(cardClassName)}
-        style={card.putWhere}>
+      <div key={idx} style={Object.assign({}, card.putWhere)}
+        className={classnames(cardClassName)}>
         <div className={styles.stageBox}
           onClick={()=>{props.dispatch({type: 'resume/turnCard', eq: idx});}}>
           <div className={classnames(styles.stage, styles.cardFront)}>
@@ -71,8 +71,10 @@ function CurriculumVitae(props, context) {
             </SegmentedControl>
           </Box>
           <Box padding="10px 30px" height="93%">
-            {words.skills.map(createCard)}
+
+            <input type="button" value='hhhhh' onClick={()=>{props.dispatch({type: 'resume/putAnyWhere'})}} />
           </Box>
+          {words.skills.map(createCard)}
         </Window>
       </Draggable>
     </div>

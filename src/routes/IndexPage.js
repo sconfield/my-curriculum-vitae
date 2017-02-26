@@ -71,19 +71,6 @@ function IndexPage(props, context) {
     }
   };
 
-  // init cards offset.
-  for (var i = 0; i < props.resume.zh.skills.length; i++) {
-    const card = {
-      center: true,
-      front: true,
-      putWhere: {
-        top: 100 * i + 'px',
-        left: '100px'
-      }
-    };
-    props.resume.cards[i] = card;
-  }
-
   return (
     <div className={styles.normal}>
       <Draggable onDrag={dragHandle}>
