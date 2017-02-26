@@ -6,7 +6,9 @@ export default {
   namespace: 'resume',
   state: {
     tab: 0,
+    cards: [],
     en: {
+      title: "zhangjing's Curriculum Vitae",
       profiles: {
         kk: {
           contact: 'contact',
@@ -170,6 +172,7 @@ export default {
       skills: {}
     },
     zh: {
+      title: '张静的简历',
       profiles: {
         kk: {
           contact: '联系方式',
@@ -355,6 +358,18 @@ export default {
         ...state,
         tab: action.tab
       };
+    },
+    turnCard(state, action) {
+      console.log(action);
+      return {
+        ...state,
+
+      }
+    },
+    putAnyWhere(state) {
+      return {
+        ...state
+      }
     }
   },
   effects: {},

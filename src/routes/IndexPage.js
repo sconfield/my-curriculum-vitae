@@ -50,6 +50,7 @@ function IndexPage(props, context) {
   };
   const automan = setInterval(autoTip, 3000);
 
+  // open curriculum vitae.
   const doubleClickHandle = (e)=>{
     clearInterval(automan);
     const language = e.currentTarget.id;

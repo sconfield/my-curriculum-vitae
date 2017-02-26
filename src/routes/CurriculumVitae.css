@@ -10,3 +10,73 @@
   width: 100%;
   overflow: scroll;
 }
+
+.card {
+  margin: auto;
+  height: 200px;
+  width: 149px;
+  background-color: pink;
+  border: 3px solid blue;
+
+  position: absolute;
+  z-index: 2;
+  perspective: 800px;
+  transition: all .8s;
+}
+
+.card .stage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.cardCenter {
+  transform: rotate(0deg);
+  z-index: 999;
+}
+
+.stageBox {
+  cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: all .6s;
+}
+
+.stageBox .cardFront {
+  transform: rotateY(0deg);
+}
+
+.stageBox .cardBack {
+  transform: rotateY(180deg);
+}
+
+.stageBox .stage {
+  backface-visibility: hidden;
+}
+
+.stageFront .stageBox {
+  transform: rotateY(0deg);
+}
+
+.stageBack .stageBox {
+  transform: rotateY(180deg);
+}
+
+.card h3 {
+  margin: 0;
+  height: 27px;
+  background-color: red;
+}
+
+.card img {
+  margin: 0;
+  height: 149px;
+  display: block;
+}
+
+.card strong {
+  margin: 0;
+  background-color: yellow;
+}
