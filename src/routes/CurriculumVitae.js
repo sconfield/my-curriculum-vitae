@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from './CurriculumVitae.css';
-import { Window, TitleBar, Box, SegmentedControl, SegmentedControlItem } from 'react-desktop/macOs';
+import { Window, TitleBar, Box, SegmentedControl, SegmentedControlItem, Button } from 'react-desktop/macOs';
 import Profiles from '../components/Profiles.js';
 import Careers from '../components/Careers.js';
 import Draggable from 'react-draggable';
@@ -71,8 +71,8 @@ function CurriculumVitae(props, context) {
             </SegmentedControl>
           </Box>
           <Box padding="10px 30px" height="93%">
-
-            <input type="button" value='hhhhh' onClick={()=>{props.dispatch({type: 'resume/putAnyWhere'})}} />
+            <Button onClick={()=>{props.dispatch({type: 'resume/putAnyWhere'})}}>扔出技能卡</Button>
+            <Button onClick={()=>{props.dispatch({type: 'resume/putOriginalPlaces'})}}>回收技能卡</Button>
           </Box>
           {words.skills.map(createCard)}
         </Window>

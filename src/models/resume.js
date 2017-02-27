@@ -10,6 +10,7 @@ import html5 from '../assets/html5.png';
 import java from '../assets/java.png';
 import javascript from '../assets/javascript.png';
 import jquery from '../assets/jquery.png';
+import mockups from '../assets/mockups.png';
 import mongodb from '../assets/mongodb.png';
 import nodejs from '../assets/nodejs.png';
 import phonegap from '../assets/phonegap.png';
@@ -25,6 +26,7 @@ import webpack from '../assets/webpack.png';
 const rootDom = document.querySelector('#root');
 const _half_x = rootDom.offsetWidth / 2 * 0.9;
 const _half_y = rootDom.offsetHeight / 2 * 0.8;
+let originalPlaces = [];
 
 export default {
   namespace: 'resume',
@@ -419,6 +421,11 @@ export default {
           url: jquery
         },
         {
+          name: 'balsamiq mockups',
+          desc: '喜欢用她画草图，手机端用 pop ，结合 dia 等流程图工具，起草 app。',
+          url: mockups
+        },
+        {
           name: 'mongodb',
           desc: '纯属个人项目中用到，krakenjs, meteor, mean.io 或者一些其他的 generator 都默认 mongodb，所以会一些基本操作。',
           url: mongodb
@@ -435,7 +442,7 @@ export default {
         },
         {
           name: 'photoshop',
-          desc: '能简单处理图像，有时也用 gimp，切图用在线工具拼接，项目中简单用过。',
+          desc: '能简单处理图像，有时也用 gimp，sketch，切图用在线工具拼接，项目中简单用过。',
           url: photoshop
         },
         {
@@ -485,13 +492,14 @@ export default {
           center: true,
           front: true,
           putWhere: {
-            top: 100*count + 'px',
+            top: 60 + 36*count + 'px',
             left: _half_x*2 - 200*line,
             transform: 'rotate(0deg)'
           }
         };
-        state.cards[i] = card;
-        if (count%5 == 0) {
+        originalPlaces.push(Object.assign({}, card.putWhere));
+        state.cards.push(card);
+        if (count%12 == 0) {
           line++;
           count = 1;
         } else {
@@ -553,6 +561,12 @@ export default {
 
       }
 
+      return {...state};
+    },
+    putOriginalPlaces(state) {
+      for (var i = 0; i < state.cards.length; i++) {
+        state.cards[i].putWhere = Object.assign({}, originalPlaces[i]);
+      }
       return {...state};
     }
   },
