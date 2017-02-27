@@ -13,7 +13,7 @@
 
 .card {
   margin: auto;
-  height: 200px;
+  height: 177px;
   width: 150px;
 
   position: absolute;
@@ -40,14 +40,17 @@
   width: 100%;
   transform-style: preserve-3d;
   transition: all .6s;
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .stageBox .cardFront {
   transform: rotateY(0deg);
+  background-color: #e1f5fe !important;
 }
 
 .stageBox .cardBack {
   transform: rotateY(180deg);
+  background-color: #cfd8dc !important;
 }
 
 .stageBox .stage {
@@ -65,16 +68,16 @@
 .card h3 {
   margin: 0;
   height: 27px;
-  background-color: gray;
+  text-align: center;
 }
 
-.card img {
+.cardImg {
   margin: 0;
-  height: 149px;
+  height: 150px;
   display: block;
 }
 
-.card strong {
+.card p {
   margin: 0;
-  background-color: yellow;
+  padding: 20px;
 }

@@ -492,8 +492,8 @@ export default {
           center: true,
           front: true,
           putWhere: {
-            top: 60 + 36*count + 'px',
-            left: _half_x*2 - 200*line,
+            top: 60 + 27*count + 'px',
+            left: _half_x*2 - 150*line - (_half_x*2/3 - 330)/2 + 'px',
             transform: 'rotate(0deg)'
           }
         };

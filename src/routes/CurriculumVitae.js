@@ -6,6 +6,7 @@ import Profiles from '../components/Profiles.js';
 import Careers from '../components/Careers.js';
 import Draggable from 'react-draggable';
 import classnames from 'classnames';
+import AtvImg from 'react-atv-img';
 
 function CurriculumVitae(props, context) {
   // set language
@@ -46,7 +47,7 @@ function CurriculumVitae(props, context) {
           onClick={()=>{props.dispatch({type: 'resume/turnCard', eq: idx});}}>
           <div className={classnames(styles.stage, styles.cardFront)}>
             <h3>{item.name}</h3>
-            <img src={item.url} />
+            <AtvImg className={styles.cardImg} layers={[item.url]} />
           </div>
           <div className={classnames(styles.stage, styles.cardBack)}>
             <p>{item.desc}</p>
