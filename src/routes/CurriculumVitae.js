@@ -9,9 +9,10 @@ import classnames from 'classnames';
 import AtvImg from 'react-atv-img';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
-import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import water from '../assets/water.mp3';
 import SlideButton from '../components/SlideButton.js';
+import putmp3 from '../assets/put.mp3';
+import pickmp3 from '../assets/pick.mp3';
 
 function CurriculumVitae(props, context) {
   // set language
@@ -45,6 +46,7 @@ function CurriculumVitae(props, context) {
       [styles.stageBack]: !card.front
     };
     const clickCardHandle = ()=>{
+      document.querySelector('#clickVoice').play();
       if (card.center) {
         props.dispatch({type: 'resume/turnCard', seq: idx});
       } else {
@@ -71,11 +73,13 @@ function CurriculumVitae(props, context) {
 
   // put cards.
   const putCards = ()=>{
+    document.querySelector('#putVoice').play();
     props.dispatch({type: 'resume/putAllAnyWhere'});
     Alert.success(<SlideButton {...props} />);
   };
   // pick up cards.
   const pickUpCards = ()=>{
+    document.querySelector('#pickVoice').play();
     props.dispatch({type: 'resume/putOriginalPlaces'});
     Alert.closeAll();
   };
@@ -101,8 +105,16 @@ function CurriculumVitae(props, context) {
           {words.skills.map(createCard)}
         </Window>
       </Draggable>
-      <Alert stack={{limit: 1, spacing: 50}} effect='slide'
-        beep={water} timeout='none' />
+      <Alert stack={{limit: 1, spacing: 50}} effect='slide' timeout='none' />
+      <audio id="clickVoice">
+        <source src={water} type="audio/mp3"></source>
+      </audio>
+      <audio id="putVoice">
+        <source src={putmp3} type="audio/mp3"></source>
+      </audio>
+      <audio id="pickVoice">
+        <source src={pickmp3} type="audio/mp3"></source>
+      </audio>
     </div>
   );
 }

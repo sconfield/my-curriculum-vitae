@@ -5,10 +5,12 @@ import Alert from 'react-s-alert';
 function SlideButton(props) {
   // put cards.
   const putCards = ()=>{
+    document.querySelector('#putVoice').play();
     props.dispatch({type: 'resume/putAllAnyWhere'});
   };
   // pick up cards.
   const pickUpCards = ()=>{
+    document.querySelector('#pickVoice').play();
     props.dispatch({type: 'resume/putOriginalPlaces'});
     Alert.closeAll();
   };

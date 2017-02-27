@@ -10,6 +10,7 @@ import html5 from '../assets/html5.png';
 import java from '../assets/java.png';
 import javascript from '../assets/javascript.png';
 import jquery from '../assets/jquery.png';
+import linux from '../assets/linux.png';
 import mockups from '../assets/mockups.png';
 import mongodb from '../assets/mongodb.png';
 import nodejs from '../assets/nodejs.png';
@@ -20,6 +21,7 @@ import python from '../assets/python.png';
 import reactjs from '../assets/reactjs.png';
 import ruby from '../assets/ruby.png';
 import stylus from '../assets/stylus.png';
+import sql from '../assets/sql.png';
 import vuejs from '../assets/vuejs.png';
 import webpack from '../assets/webpack.png';
 
@@ -462,6 +464,11 @@ export default {
           url: jquery
         },
         {
+          name: 'linux',
+          desc: '熟悉常用的 linux 及 vi 的常用命令，能在 linux 环境部署应用，采集日志，添加监控。',
+          url: linux
+        },
+        {
           name: 'balsamiq mockups',
           desc: '喜欢用她画草图，手机端用 pop ，结合 dia 等流程图工具，起草 app。',
           url: mockups
@@ -512,6 +519,11 @@ export default {
           url: stylus
         },
         {
+          name: 'sql',
+          desc: '熟练使用 pl/sql ，能写 job, 能写存储过程，熟悉分组查询，联表查询。',
+          url: sql
+        },
+        {
           name: 'vuejs',
           desc: '尤大从写 html5 clear 的时候就开始关注了，到 google 到 meteor。他的开源项目，当然要玩。',
           url: vuejs
@@ -542,7 +554,7 @@ export default {
         };
         originalPlaces.push(Object.assign({}, card.putWhere));
         state.cards.push(card);
-        if (count%12 == 0) {
+        if (count%13 == 0) {
           line++;
           count = 1;
         } else {
