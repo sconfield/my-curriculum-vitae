@@ -1,13 +1,26 @@
-import html5 from '../assets/html5.jpg';
-import css3 from '../assets/css3.jpg';
-import javascript from '../assets/javascript.jpg';
-import nodejs from '../assets/nodejs.jpg';
+import backbone from '../assets/backbone.png';
+import bootstrap from '../assets/bootstrap.png';
+import coffeescript from '../assets/coffeescript.png';
+import css3 from '../assets/css3.png';
+import dart from '../assets/dart.png';
+import flex from '../assets/flex.png';
+import github from '../assets/github.png';
+import grunt from '../assets/grunt.png';
+import html5 from '../assets/html5.png';
+import java from '../assets/java.png';
+import javascript from '../assets/javascript.png';
+import jquery from '../assets/jquery.png';
+import mongodb from '../assets/mongodb.png';
+import nodejs from '../assets/nodejs.png';
+import phonegap from '../assets/phonegap.png';
+import photoshop from '../assets/photoshop.png';
+import pug from '../assets/pug.png';
+import python from '../assets/python.png';
+import reactjs from '../assets/reactjs.png';
+import ruby from '../assets/ruby.png';
+import stylus from '../assets/stylus.png';
 import vuejs from '../assets/vuejs.png';
-import reactjs from '../assets/react.png';
-import jquery from '../assets/jquery.jpg';
-import git from '../assets/git.jpg';
-import photoshop from '../assets/photoshop.jpg';
-import phonegap from '../assets/phonegap.jpg';
+import webpack from '../assets/webpack.png';
 
 const rootDom = document.querySelector('#root');
 const _half_x = rootDom.offsetWidth / 2 * 0.9;
@@ -346,54 +359,119 @@ export default {
       ],
       skills: [
         {
-          name: 'html5',
-          desc: 'bibibi',
-          url: html5
+          name: 'backbone',
+          desc: '项目中用过，结合 jquery 和 underscore 处理大量数据。',
+          url: backbone
+        },
+        {
+          name: 'bootstrap',
+          desc: '项目中用过，很强大，能大量缩短开发时间。',
+          url: bootstrap
+        },
+        {
+          name: 'coffeescript',
+          desc: '项目中用过，喜欢类似 python, ruby 的写法。',
+          url: coffeescript
         },
         {
           name: 'css3',
-          desc: 'bibibi',
+          desc: '入职第一家公司就开始尝试写 css3，一直未在工作项目中使用过。',
           url: css3
         },
         {
+          name: 'dart',
+          desc: '一直很喜欢 google 的技术栈，参加 GDG 活动的时候完成过 one hour codelab。',
+          url: dart
+        },
+        {
+          name: 'flex',
+          desc: '项目中用过，写过统计分析的图表。',
+          url: flex
+        },
+        {
+          name: 'github',
+          desc: '了解 git 命令，喜欢使用 SourceTree, Github 客户端。也熟悉 SVN。',
+          url: github
+        },
+        {
+          name: 'grunt',
+          desc: '自己学习过 gruntjs, requirejs, angularjs 等，写过 demo https://github.com/PlayTimeline/iS-grunt',
+          url: grunt
+        },
+        {
+          name: 'html5',
+          desc: '熟悉语义性，能写符合 w3c 标准的 html 页面。',
+          url: html5
+        },
+        {
+          name: 'java',
+          desc: '有多年的 java 开发经验，熟练 ssh 等框架。',
+          url: java
+        },
+        {
           name: 'javascript',
-          desc: 'bibibi',
+          desc: '这个东西不简单，现在追求能够用优雅的代码实现功能。',
           url: javascript
         },
         {
-          name: 'nodejs',
-          desc: 'bibibi',
-          url: nodejs
-        },
-        {
-          name: 'vuejs',
-          desc: 'bibibi',
-          url: vuejs
-        },
-        {
-          name: 'reactjs',
-          desc: 'bibibi',
-          url: reactjs
-        },
-        {
           name: 'jquery',
-          desc: 'bibibi',
+          desc: '入职第一家公司的时候，就把 1.3 API 的所有方法做过 demo。虽然最近几年未用，但熟悉基本 API。',
           url: jquery
         },
         {
-          name: 'git',
-          desc: 'bibibi',
-          url: git
+          name: 'mongodb',
+          desc: '纯属个人项目中用到，krakenjs, meteor, mean.io 或者一些其他的 generator 都默认 mongodb，所以会一些基本操作。',
+          url: mongodb
         },
         {
-          name: 'photoshop',
-          desc: 'bibibi',
-          url: photoshop
+          name: 'nodejs',
+          desc: '我觉得她是一个完美的平台。',
+          url: nodejs
         },
         {
           name: 'phonegap',
-          desc: 'bibibi',
+          desc: '刚出来的时候，很迷恋，做过 app 给老爸用。https://github.com/PlayTimeline/iS_violation',
           url: phonegap
+        },
+        {
+          name: 'photoshop',
+          desc: '能简单处理图像，有时也用 gimp，切图用在线工具拼接，项目中简单用过。',
+          url: photoshop
+        },
+        {
+          name: 'pug',
+          desc: '我用的时候叫 jade ，图标还是一个兔子，我属兔就用的。现在的 pug 也好萌。',
+          url: pug
+        },
+        {
+          name: 'python',
+          desc: '工作中写过自动化测试脚本，也用 python 来割接数据，感觉比写存储过程舒服。',
+          url: python
+        },
+        {
+          name: 'reactjs',
+          desc: '这份简历就是用 react 写的。',
+          url: reactjs
+        },
+        {
+          name: 'ruby',
+          desc: '用 sinatra 搭建过应用，简化自己的工作，玩过 jekyll 和 ror。',
+          url: ruby
+        },
+        {
+          name: 'stylus',
+          desc: '玩过 less, scss，个人项目用的 stylus。',
+          url: stylus
+        },
+        {
+          name: 'vuejs',
+          desc: '尤大从写 html5 clear 的时候就开始关注了，到 google 到 meteor。他的开源项目，当然要玩。',
+          url: vuejs
+        },
+        {
+          name: 'webpack',
+          desc: '当我熟悉 grunt 后，出来了 gulp，然后出来了 webpack。赫赫！',
+          url: webpack
         }
       ]
     }
