@@ -28,6 +28,47 @@ const _half_x = rootDom.offsetWidth / 2 * 0.9;
 const _half_y = rootDom.offsetHeight / 2 * 0.8;
 let originalPlaces = [];
 
+const putAnyWhere = (card)=>{
+  card.putWhere['transform'] = 'rotate('+Math.random()*360+'deg)';
+  const anyOne = Math.random();
+  const anyTwo = Math.random();
+  let _any_x, _any_y;
+  switch (card.seq%4) {
+    case 0:
+      _any_x = _half_x * anyOne;
+      _any_y = _half_y * anyTwo;
+      break;
+    case 1:
+      _any_x = _half_x * (anyOne+1);
+      _any_y = _half_y * anyTwo;
+      break;
+    case 2:
+      _any_x = _half_x * anyOne;
+      _any_y = _half_y * (anyTwo+1);
+      break;
+    case 3:
+      _any_x = _half_x * (anyOne+1);
+      _any_y = _half_y * (anyTwo+1);
+      break;
+    default:
+      console.log('sconfield');
+  }
+
+  const limitX = _half_x*2 - 150;
+  const limitY = _half_y*2 - 200;
+  if (_any_x > limitX) {
+    _any_x = _any_x - limitX;
+  }
+  if (_any_y > limitY) {
+    _any_y = _any_y - limitY;
+  }
+
+  card.putWhere.left = _any_x + 'px';
+  card.putWhere.top = _any_y + 'px';
+
+  return card;
+};
+
 export default {
   namespace: 'resume',
   state: {
@@ -489,12 +530,14 @@ export default {
       let count = 1;
       for (let i = 0; i < state.zh.skills.length; i++) {
         const card = {
-          center: true,
+          seq: i,
+          center: false,
           front: true,
           putWhere: {
             top: 60 + 27*count + 'px',
             left: _half_x*2 - 150*line - (_half_x*2/3 - 330)/2 + 'px',
-            transform: 'rotate(0deg)'
+            transform: 'rotate(0deg)',
+            zIndex: 10 + i
           }
         };
         originalPlaces.push(Object.assign({}, card.putWhere));
@@ -515,58 +558,43 @@ export default {
       };
     },
     turnCard(state, action) {
-      state.cards[action.eq].front = !state.cards[action.eq].front;
+      state.cards[action.seq].front = !state.cards[action.seq].front;
       return {...state};
     },
-    putAnyWhere(state) {
-      // put all cards to any where
+    putAllAnyWhere(state) {
+      // put all cards to any where.
       for (let i = 0; i < state.cards.length; i++) {
-        const card = state.cards[i];
-        card.putWhere['transform'] = 'rotate('+Math.random()*360+'deg)';
-        const anyOne = Math.random();
-        const anyTwo = Math.random();
-        let _any_x, _any_y;
-        switch (i%4) {
-          case 0:
-            _any_x = _half_x * anyOne;
-            _any_y = _half_y * anyTwo;
-            break;
-          case 1:
-            _any_x = _half_x * (anyOne+1);
-            _any_y = _half_y * anyTwo;
-            break;
-          case 2:
-            _any_x = _half_x * anyOne;
-            _any_y = _half_y * (anyTwo+1);
-            break;
-          case 3:
-            _any_x = _half_x * (anyOne+1);
-            _any_y = _half_y * (anyTwo+1);
-            break;
-          default:
-            console.log('sconfield');
-        }
-
-        const limitX = _half_x*2 - 150;
-        const limitY = _half_y*2 - 200;
-        if (_any_x > limitX) {
-          _any_x = _any_x - limitX;
-        }
-        if (_any_y > limitY) {
-          _any_y = _any_y - limitY;
-        }
-
-        card.putWhere.left = _any_x + 'px';
-        card.putWhere.top = _any_y + 'px';
-
+        state.cards[i] = putAnyWhere(state.cards[i]);
       }
-
       return {...state};
     },
     putOriginalPlaces(state) {
       for (var i = 0; i < state.cards.length; i++) {
+        state.cards[i].center = false;
         state.cards[i].putWhere = Object.assign({}, originalPlaces[i]);
       }
+      return {...state};
+    },
+    putCenterBigCard(state, action) {
+      let oldCenterCard = false;
+      for (var i = 0; i < state.cards.length; i++) {
+        const item = state.cards[i];
+        if (item.center) {
+          oldCenterCard = item;
+        }
+        item.center = false;
+      }
+
+      if (oldCenterCard && oldCenterCard.seq != action.seq) {
+        putAnyWhere(oldCenterCard);
+      }
+      const newCenterCard = state.cards[action.seq];
+      newCenterCard.center = true;
+      newCenterCard.putWhere = {
+        top: _half_y - 180 + 'px',
+        left: _half_x - 180 + 'px',
+        transform: 'rotate(0deg)'
+      };
       return {...state};
     }
   },

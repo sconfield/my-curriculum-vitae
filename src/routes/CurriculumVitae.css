@@ -31,6 +31,8 @@
 .cardCenter {
   transform: rotate(0deg);
   z-index: 999;
+  height: 360px;
+  width: 360px;
 }
 
 .stageBox {
@@ -73,7 +75,8 @@
 
 .cardImg {
   margin: 0;
-  height: 150px;
+  height: 100%;
+  width: 100%;
   display: block;
 }
 

@@ -39,12 +39,19 @@ function CurriculumVitae(props, context) {
       [styles.stageFront]: card.front,
       [styles.stageBack]: !card.front
     };
+    const clickCardHandle = ()=>{
+      if (card.center) {
+        props.dispatch({type: 'resume/turnCard', seq: idx});
+      } else {
+        props.dispatch({type: 'resume/putCenterBigCard', seq: idx});
+      }
+    };
 
     return(
       <div key={idx} style={Object.assign({}, card.putWhere)}
         className={classnames(cardClassName)}>
         <div className={styles.stageBox}
-          onClick={()=>{props.dispatch({type: 'resume/turnCard', eq: idx});}}>
+          onClick={clickCardHandle}>
           <div className={classnames(styles.stage, styles.cardFront)}>
             <h3>{item.name}</h3>
             <AtvImg className={styles.cardImg} layers={[item.url]} />
@@ -72,7 +79,7 @@ function CurriculumVitae(props, context) {
             </SegmentedControl>
           </Box>
           <Box padding="10px 30px" height="93%">
-            <Button onClick={()=>{props.dispatch({type: 'resume/putAnyWhere'})}}>扔出技能卡</Button>
+            <Button onClick={()=>{props.dispatch({type: 'resume/putAllAnyWhere'})}}>扔出技能卡</Button>
             <Button onClick={()=>{props.dispatch({type: 'resume/putOriginalPlaces'})}}>回收技能卡</Button>
           </Box>
           {words.skills.map(createCard)}
