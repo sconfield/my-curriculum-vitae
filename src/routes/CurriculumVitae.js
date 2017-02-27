@@ -7,6 +7,11 @@ import Careers from '../components/Careers.js';
 import Draggable from 'react-draggable';
 import classnames from 'classnames';
 import AtvImg from 'react-atv-img';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import water from '../assets/water.mp3';
+import SlideButton from '../components/SlideButton.js';
 
 function CurriculumVitae(props, context) {
   // set language
@@ -64,6 +69,17 @@ function CurriculumVitae(props, context) {
     );
   };
 
+  // put cards.
+  const putCards = ()=>{
+    props.dispatch({type: 'resume/putAllAnyWhere'});
+    Alert.success(<SlideButton {...props} />);
+  };
+  // pick up cards.
+  const pickUpCards = ()=>{
+    props.dispatch({type: 'resume/putOriginalPlaces'});
+    Alert.closeAll();
+  };
+
   return (
     <div className={styles.normal}>
       <Draggable>
@@ -79,12 +95,14 @@ function CurriculumVitae(props, context) {
             </SegmentedControl>
           </Box>
           <Box padding="10px 30px" height="93%">
-            <Button onClick={()=>{props.dispatch({type: 'resume/putAllAnyWhere'})}}>扔出技能卡</Button>
-            <Button onClick={()=>{props.dispatch({type: 'resume/putOriginalPlaces'})}}>回收技能卡</Button>
+            <Button onClick={putCards}>扔出技能卡</Button>
+            <Button onClick={pickUpCards}>回收技能卡</Button>
           </Box>
           {words.skills.map(createCard)}
         </Window>
       </Draggable>
+      <Alert stack={{limit: 1, spacing: 50}} effect='slide'
+        beep={water} timeout='none' />
     </div>
   );
 }

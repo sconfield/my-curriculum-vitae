@@ -564,6 +564,7 @@ export default {
     putAllAnyWhere(state) {
       // put all cards to any where.
       for (let i = 0; i < state.cards.length; i++) {
+        state.cards[i].center = false;
         state.cards[i] = putAnyWhere(state.cards[i]);
       }
       return {...state};
