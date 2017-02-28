@@ -16,3 +16,12 @@
 .normal label {
   margin: 0 10px 0 10px;
 }
+
+.normal ul {
+  margin: 0;
+}
+
+.normal p {
+  margin: 0;
+  text-indent: 2em;
+}

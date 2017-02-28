@@ -43,8 +43,9 @@ function Profiles(props) {
       {createItem(kk.job, vv.job)}
       {createItem(kk.money, vv.money)}
       {createItem(kk.city, vv.city)}
-      {createLink('常用的 Github', 'http://github.com/sconfield')}
-      {createLink('以前的 Github', 'https://github.com/PlayTimeline')}
+      {createLink(kk.newGitub, 'http://github.com/sconfield')}
+      {createLink(kk.oldGithub, 'https://github.com/PlayTimeline')}
+      {createLink(kk.business, 'http://cqwanyue.com')}
       <h3>{kk.blog}</h3>
       <ul>
         {vv.blog.map(createBlog)}

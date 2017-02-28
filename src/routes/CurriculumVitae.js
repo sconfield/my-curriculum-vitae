@@ -95,7 +95,7 @@ function CurriculumVitae(props, context) {
             <Profiles msg={words.profiles} />
           </Box>
           <Box padding="10px 30px" height="93%">
-            <SegmentedControl box className={styles.ctrlItem}>
+            <SegmentedControl className={styles.ctrlItem}>
               {words.careers.map(createTab)}
             </SegmentedControl>
           </Box>

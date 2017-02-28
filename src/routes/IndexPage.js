@@ -89,7 +89,7 @@ function IndexPage(props, context) {
       dontTip();
       props.dispatch({type: 'resume/minWindow'});
     } else if (act == 'close') {
-      alert('😭，大哥，别走！');
+      alert('😭，大哥，再看一眼嘛，别走！');
     }
   };
 

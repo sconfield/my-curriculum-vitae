@@ -8,7 +8,7 @@ function Careers(props) {
   );
   const createProject = (item, idx)=>(
     <div key={idx}>
-      <h3>{item.name}</h3>
+      <h4>{item.name}</h4>
       <p>{item.desc}</p>
       <ul>
         {item.depth.map(createDepth)}
@@ -18,7 +18,7 @@ function Careers(props) {
 
   return (
     <div className={styles.normal}>
-      <h2>{company.title}</h2>
+      <h3>{company.title}</h3>
       {company.project.map(createProject)}
     </div>
   );
