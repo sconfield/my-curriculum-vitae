@@ -2,16 +2,16 @@ import React from 'react';
 import styles from './SlideButton.css';
 import Alert from 'react-s-alert';
 
-function SlideButton(props) {
+function SlideButton({dispatch, ptan, pkn, ppt}) {
   // put cards.
   const putCards = ()=>{
     document.querySelector('#putVoice').play();
-    props.dispatch({type: 'resume/putAllAnyWhere'});
+    dispatch({type: 'resume/putAllAnyWhere'});
   };
   // pick up cards.
   const pickUpCards = ()=>{
     document.querySelector('#pickVoice').play();
-    props.dispatch({type: 'resume/putOriginalPlaces'});
+    dispatch({type: 'resume/putOriginalPlaces'});
     Alert.closeAll();
   };
 
@@ -25,10 +25,10 @@ function SlideButton(props) {
 
   return (
     <div className={styles.normal}>
-      <h3>这里也可以点哦！</h3>
+      <h3>{ppt}</h3>
       <div>
-        <button onClick={putCards}>再次打乱卡片</button>
-        <button onClick={pickUpCards}>回收技能卡</button>
+        <button onClick={putCards}>{ptan}</button>
+        <button onClick={pickUpCards}>{pkn}</button>
       </div>
     </div>
   );

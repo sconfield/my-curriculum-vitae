@@ -76,7 +76,10 @@ function CurriculumVitae(props, context) {
   const putCards = ()=>{
     document.querySelector('#putVoice').play();
     props.dispatch({type: 'resume/putAllAnyWhere'});
-    Alert.success(<SlideButton {...props} />);
+    Alert.success(
+      <SlideButton dispatch={props.dispatch} ptan={words.putAgainBtnName}
+        pkn={words.pickBtnName} ppt={words.putPickTip} />
+    );
   };
   // pick up cards.
   const pickUpCards = ()=>{
@@ -95,13 +98,13 @@ function CurriculumVitae(props, context) {
             <Profiles msg={words.profiles} />
           </Box>
           <Box padding="10px 30px" height="93%">
-            <SegmentedControl className={styles.ctrlItem}>
+            <SegmentedControl height='100%' style={{overflow: 'scroll'}}>
               {words.careers.map(createTab)}
             </SegmentedControl>
           </Box>
           <Box padding="10px 30px" height="93%">
-            <Button onClick={putCards}>扔出技能卡</Button>
-            <Button onClick={pickUpCards}>回收技能卡</Button>
+            <Button onClick={putCards}>{words.putBtnName}</Button>
+            <Button onClick={pickUpCards}>{words.pickBtnName}</Button>
           </Box>
           {words.skills.map(createCard)}
         </Window>

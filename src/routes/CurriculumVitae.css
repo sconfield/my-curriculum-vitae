@@ -2,13 +2,7 @@
 .normal {
   margin: auto;
   height: 80%;
-  width: 90%; 
-}
-
-.ctrlItem {
-  height: 100%;
-  width: 100%;
-  overflow: scroll;
+  width: 90%;
 }
 
 .card {
