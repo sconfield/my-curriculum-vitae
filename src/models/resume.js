@@ -76,6 +76,7 @@ export default {
   state: {
     tab: 0,
     cards: [],
+    idxWinMax: false,
     en: {
       title: "zhangjing's Curriculum Vitae",
       profiles: {
@@ -336,7 +337,7 @@ export default {
           project: [
             {
               name: '甘肃 AAA 宽带认证计费项目',
-              desc: '负责AAA系统的部署及与思达、中兴等厂家的联合调试工作。在甘肃兰州、定西、武威、金昌、永昌、张掖、酒泉、嘉峪关等地市进行宽带安装流程培训。并将我们 BOSS 1.0 中的用户数据交接给思达 BOSS。前期处理各类服务器、交换机、防火墙的设备接线和负载均衡，防火墙参数配置的工作；后期处理项目的日志，数据备份，磁盘监控等工作。',
+              desc: '负责 AAA 系统调试、部署及数据割接工作。在甘肃兰州、定西、武威、金昌、永昌、张掖、酒泉、嘉峪关等地市进行宽带安装流程培训。前期处理服务器、交换机、防火墙的设备接线和参数配置的工作；后期处理项目的日志，数据备份，磁盘监控等工作。',
               depth: [
                 '中途由于 Oracle 服务器磁盘阵列问题，手动切换过备用数据库服务器。',
                 '也割接过 ldap 缓存的宽带用户数据。',
@@ -460,12 +461,12 @@ export default {
         },
         {
           name: 'jquery',
-          desc: '入职第一家公司的时候，就把 1.3 API 的所有方法做过 demo。虽然最近几年未用，但熟悉基本 API。',
+          desc: '入职第一家公司的时候，就把 1.3 版本的所有 API 都做过 demo。虽然最近几年未用，但熟悉基本 API。',
           url: jquery
         },
         {
           name: 'linux',
-          desc: '熟悉常用的 linux 及 vi 的常用命令，能在 linux 环境部署应用，采集日志，添加监控。',
+          desc: '熟悉常用的 linux 及 vi 命令，能在 linux 环境下部署应用，采集日志，添加监控。',
           url: linux
         },
         {
@@ -495,7 +496,7 @@ export default {
         },
         {
           name: 'pug',
-          desc: '我用的时候叫 jade ，图标还是一个兔子，我属兔就用的。现在的 pug 也好萌。',
+          desc: '我用的时候叫 jade ，图标还是一个兔子，我属兔就用了。现在的 pug 也好萌。',
           url: pug
         },
         {
@@ -604,11 +605,23 @@ export default {
       const newCenterCard = state.cards[action.seq];
       newCenterCard.center = true;
       newCenterCard.putWhere = {
-        top: _half_y - 180 + 'px',
-        left: _half_x - 180 + 'px',
+        top: _half_y - 135 + 'px',
+        left: _half_x - 135 + 'px',
         transform: 'rotate(0deg)'
       };
       return {...state};
+    },
+    maxWindow(state) {
+      return {
+        ...state,
+        idxWinMax: true
+      }
+    },
+    minWindow(state){
+      return {
+        ...state,
+        idxWinMax: false
+      }
     }
   },
   effects: {},

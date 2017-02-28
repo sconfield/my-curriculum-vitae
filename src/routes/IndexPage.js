@@ -7,6 +7,7 @@ import en from '../assets/github-en.png';
 import zh from '../assets/github-zh.png';
 import ReactTooltip from 'react-tooltip';
 import Draggable from 'react-draggable';
+import classnames from 'classnames';
 
 function IndexPage(props, context) {
   const fileArr = [
@@ -42,13 +43,14 @@ function IndexPage(props, context) {
   let switchTip = 0;
   const autoTip = ()=>{
     const tipDom = document.querySelector('[data-id="tooltip"]');
-    if(tipDom.getAttribute('class').indexOf('show') < 0
+    if(tipDom
+      && tipDom.getAttribute('class').indexOf('show') < 0
       && props.location.pathname == '/') {
       document.querySelector('#tip_' + switchTip%2).click();
       switchTip++;
     }
   };
-  const automan = setInterval(autoTip, 3000);
+  const automan = setInterval(autoTip, 6000);
 
   // open curriculum vitae.
   const doubleClickHandle = (e)=>{
@@ -63,19 +65,42 @@ function IndexPage(props, context) {
   };
 
   // when dragging do not tip.
-  const dragHandle = ()=>{
+  const dontTip = ()=>{
     const tipDom = document.querySelector('.show[data-id="tooltip"]');
     if(tipDom) {
       const cls = tipDom.getAttribute('class').replace(/show/, ' ');
       tipDom.setAttribute('class', cls);
     }
   };
+  const dragHandle = ()=>{
+    dontTip();
+  };
+
+  // control window size.
+  const winSize = {
+    [styles.normal]: !props.resume.idxWinMax,
+    [styles.normalMax]: props.resume.idxWinMax
+  };
+  const ctrlWinSize = (act)=>{
+    if (act == 'max') {
+      dontTip();
+      props.dispatch({type: 'resume/maxWindow'});
+    } else if (act == 'min') {
+      dontTip();
+      props.dispatch({type: 'resume/minWindow'});
+    } else if (act == 'close') {
+      alert('😭，大哥，别走！');
+    }
+  };
 
   return (
-    <div className={styles.normal}>
+    <div className={classnames(winSize)}>
       <Draggable onDrag={dragHandle}>
-        <Window chrome height="400px" width="600px">
-          <TitleBar title="sconfield's iMac" controls>
+        <Window chrome height="100%" width="100%">
+          <TitleBar title="sconfield's iMac" controls
+            onCloseClick={()=>{ctrlWinSize('close')}}
+            onMinimizeClick={()=>{ctrlWinSize('min')}}
+            onResizeClick={()=>{ctrlWinSize('max')}}>
             <Toolbar height="43" width="200px" horizontalAlignment="right">
               <SearchField placeholder="Search" defaultValue="" />
             </Toolbar>
@@ -84,7 +109,7 @@ function IndexPage(props, context) {
         </Window>
       </Draggable>
       <ReactTooltip type="info" effect="solid" event="click"
-        delayShow={200} delayHide={300} html={true} />
+        delayShow={200} delayHide={300} html={true} place="bottom" />
       {props.children}
     </div>
   );

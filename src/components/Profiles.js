@@ -40,8 +40,8 @@ function Profiles(props) {
       {createItem(kk.marriage, vv.marriage)}
       {createItem(kk.profession, vv.profession)}
       {createItem(kk.work, vv.work)}
-      {createLink('Github 1', 'http://github.com/sconfield')}
-      {createLink('Github 2', 'https://github.com/PlayTimeline')}
+      {createLink('常用的 Github', 'http://github.com/sconfield')}
+      {createLink('以前的 Github', 'https://github.com/PlayTimeline')}
       <h3>{kk.blog}</h3>
       <ul>
         {vv.blog.map(createBlog)}

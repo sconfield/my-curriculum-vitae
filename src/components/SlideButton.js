@@ -15,6 +15,14 @@ function SlideButton(props) {
     Alert.closeAll();
   };
 
+  // do not close.
+  setTimeout(function () {
+    const alertClose = document.querySelector('span.s-alert-close');
+    if (alertClose) {
+      alertClose.remove();
+    }
+  }, 130);
+
   return (
     <div className={styles.normal}>
       <h3>这里也可以点哦！</h3>

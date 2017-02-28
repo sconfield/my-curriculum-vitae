@@ -2,7 +2,7 @@
 .normal {
   margin: auto;
   height: 80%;
-  width: 90%;
+  width: 90%; 
 }
 
 .ctrlItem {
@@ -31,8 +31,8 @@
 .cardCenter {
   transform: rotate(0deg);
   z-index: 999;
-  height: 360px;
-  width: 360px;
+  height: 270px;
+  width: 270px;
 }
 
 .stageBox {
@@ -82,5 +82,5 @@
 
 .card p {
   margin: 0;
-  padding: 20px;
+  padding: 15px;
 }

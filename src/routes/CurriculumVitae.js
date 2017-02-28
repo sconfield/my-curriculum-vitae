@@ -9,6 +9,7 @@ import classnames from 'classnames';
 import AtvImg from 'react-atv-img';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import water from '../assets/water.mp3';
 import SlideButton from '../components/SlideButton.js';
 import putmp3 from '../assets/put.mp3';
