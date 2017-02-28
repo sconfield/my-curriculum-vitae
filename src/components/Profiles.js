@@ -50,14 +50,22 @@ function Profiles(props) {
         {vv.blog.map(createBlog)}
       </ul>
       <h3>{kk.education}</h3>
-      {vv.education.map(createList)}
+      <ul>
+        {vv.education.map(createList)}
+      </ul>
       <h3>{kk.certificate}</h3>
-      {vv.certificate.map(createList)}
+      <ul>
+        {vv.certificate.map(createList)}
+      </ul>
       <h3>{kk.english}</h3>
       <p>{vv.english}</p>
-      {vv.enreslist.map(createBlog)}
+      <ul>
+        {vv.enreslist.map(createBlog)}
+      </ul>
       <h3>{kk.activity}</h3>
-      {vv.activity.map(createBlog)}
+      <ul>
+        {vv.activity.map(createBlog)}
+      </ul>
     </div>
   );
 }

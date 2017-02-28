@@ -320,7 +320,7 @@ export default {
             {
               name: '兰州的 GDG 活动',
               url: 'http://www.chinagdg.com/forum.php?mod=viewthread&tid=3603&highlight=dart',
-              desc: '2014年在兰州出差的时候参加过兰州的 GDG 活动。并远程向 Jackie 请教了一些技术问题。'
+              desc: '在兰州出差的时候参加过兰州的 GDG 活动。并远程向 Jackie 请教了一些技术问题。'
             },
             {
               name: '重庆国际马拉松',
