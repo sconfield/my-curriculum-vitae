@@ -109,22 +109,22 @@ export default {
             {
               name: 'CSDN blog',
               url: 'http://blog.csdn.net/qq378332287',
-              desc: '从 2009-07 至 2010-05，阅读量 3w+'
+              desc: '从 2009-07 至 2010-05，访问量 3w+'
             },
             {
               name: 'cnblogs',
               url: 'http://www.cnblogs.com/sconfield',
-              desc: '从 2010-11 至 2011-04，阅读量 2k+'
+              desc: '从 2010-11 至 2011-04，访问量 2k+'
             },
             {
               name: 'Github blog',
               url: 'http://sconfield.github.io',
-              desc: '从 2010-11 至 2013-10，阅读量 40+/m'
+              desc: '从 2010-11 至 2013-10，访问量 40+/m'
             },
             {
               name: 'oschina blog',
               url: 'http://sconfield.oschina.io',
-              desc: '2017-01 至今，阅读量 0'
+              desc: '2017-01 至今，访问量 0'
             }
           ],
           job: 'Web 前端工程师',
@@ -273,22 +273,22 @@ export default {
             {
               name: 'CSDN blog',
               url: 'http://blog.csdn.net/qq378332287',
-              desc: '从 2009-07 至 2010-05，阅读量 3w+'
+              desc: '从 2009-07 至 2010-05，访问量 3w+'
             },
             {
               name: 'cnblogs',
               url: 'http://www.cnblogs.com/sconfield',
-              desc: '从 2010-11 至 2011-04，阅读量 2k+'
+              desc: '从 2010-11 至 2011-04，访问量 2k+'
             },
             {
               name: 'Github blog',
               url: 'http://sconfield.github.io',
-              desc: '从 2010-11 至 2013-10，阅读量 40+/m'
+              desc: '从 2010-11 至 2013-10，访问量 40+/m'
             },
             {
               name: 'oschina blog',
               url: 'http://sconfield.oschina.io',
-              desc: '2017-01 至今，阅读量 0'
+              desc: '2017-01 至今，访问量 0'
             }
           ],
           job: 'Web 前端工程师',
