@@ -1,3 +1,9 @@
 
-.normal {
+.normal button {
+  background-color: #fec04e;
+  border-color: #fec04e;
+  border-radius: 200px;
+  color: black;
+  margin: 5px;
+  cursor: pointer;
 }
