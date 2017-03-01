@@ -110,7 +110,6 @@ function IndexPage(props, context) {
       </Draggable>
       <ReactTooltip type="info" effect="solid" event="click"
         delayShow={200} delayHide={300} html={true} place="bottom" />
-      {props.children}
     </div>
   );
 }

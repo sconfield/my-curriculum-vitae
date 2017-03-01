@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Profiles.css';
 
-function Profiles(props) {
+function Profiles(props, style) {
   const kk = props.msg.kk;
   const vv = props.msg.vv;
   const createItem = (kkk, vvv)=>(
@@ -29,7 +29,7 @@ function Profiles(props) {
   );
 
   return (
-    <div className={styles.normal}>
+    <div className={styles.normal} style={{overflow: 'auto'}}>
       <h3>{kk.contact}</h3>
       {createItem(kk.phone, '15523887372')}
       {createItem(kk.wechat, 'sconfield')}

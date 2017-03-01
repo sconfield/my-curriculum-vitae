@@ -5,6 +5,11 @@
   width: 90%;
 }
 
+.normal>div>div:nth-child(2) {
+  overflow: hidden; /* firefox bug */
+  height: 100%; /* safari bug */
+}
+
 .card {
   margin: auto;
   height: 177px;

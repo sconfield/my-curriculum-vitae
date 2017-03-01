@@ -223,7 +223,7 @@ export default {
           ]
         },
         {
-          name: 'technical of dx',
+          name: 'dingxuan',
           title: '2010/04 ~ 2013/01',
           project: [
             {

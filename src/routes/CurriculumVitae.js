@@ -94,15 +94,15 @@ function CurriculumVitae(props, context) {
         <Window chrome height="100%" width="100%">
           <TitleBar title={words.title}
             controls onCloseClick={()=>{context.router.push('/');}} />
-          <Box padding="10px 30px" height="93%">
+          <Box padding="10px 20px" height="93%" margin="0 5px">
             <Profiles msg={words.profiles} />
           </Box>
-          <Box padding="10px 30px" height="93%">
-            <SegmentedControl height='100%' style={{overflow: 'scroll'}}>
+          <Box padding="10px 20px" height="93%" margin="0 5px">
+            <SegmentedControl height='100%' style={{overflow: 'auto'}}>
               {words.careers.map(createTab)}
             </SegmentedControl>
           </Box>
-          <Box padding="10px 30px" height="93%">
+          <Box padding="10px 20px" height="93%" margin="0 5px">
             <Button onClick={putCards}>{words.putBtnName}</Button>
             <Button onClick={pickUpCards}>{words.pickBtnName}</Button>
           </Box>
