@@ -179,21 +179,21 @@ export default {
           title: '2013/09 ~ 2016/09',
           project: [
             {
-              name: '甘肃AAA宽带认证计费项目',
-              desc: '负责AAA系统部署、调试及数据割接工作。在甘肃兰州、张掖、酒泉等8个地市进行过流程培训。前期处理设备接线和参数配置的工作；后期处理日志采集，数据备份，磁盘监控等工作。',
+              name: 'The AAA system of broadband billing in Gansu',
+              desc: 'I am responsible for AAA system deployment, debugging and data check cut worked. i am training customer in Zhangye, Lanzhou, Jiuquan and other 8 cities.',
               depth: [
-                '服务器磁盘阵列问题，手动切换过备用数据库。',
-                '割接过oracle和ldap的数据。',
-                '日常操作mysql对异常用户或者部分区域进行强制下线。'
+                'The server disk array problem, manually switch to backup database.',
+                'The oracle and LDAP data check cut.',
+                'Used MySQL to operate on exception users or some region of forced offline.'
               ]
             },
             {
-              name: '重庆现场BOSS项目',
-              desc: '前期做报表和处理订单错误，然后负责系统升级部署。后期主要负责套餐配置，配置期间获得现场颁发的“最佳敬业奖”。',
+              name: 'The BOSS system in Chongqing',
+              desc: 'First made report and handle the order error, and then responsible for system upgrade deployment. The latter was primary responsible for the tv program configuration, during was got the best dedication award.',
               depth: [
-                '编写了批量处理脚本，系统错误订单存量由1000降至50。',
-                '用ruby sinatra和bootstrap搭建了一个简单的本地应用，拼凑配置套餐的sql语句，缩短了配置时间。',
-                '用python和selenium写了一个简易的自动化测试脚本，每到测试套餐的时候我就去茶水间搬水桶，每天四桶。'
+                'Code a batch processing script, system error order store decreased from 1000 to 50.',
+                'Used ruby sinatra and bootstrap to build a simple application, can be join sql sentence and shorten the configuration time.',
+                'Used python and selenium to code a simple automated test script. can be carry the bucket to the tea room when I run the test script, four bucket per day.'
               ]
             }
           ]
