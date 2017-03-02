@@ -14,6 +14,7 @@ import water from '../assets/water.mp3';
 import SlideButton from '../components/SlideButton.js';
 import putmp3 from '../assets/put.mp3';
 import pickmp3 from '../assets/pick.mp3';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 function CurriculumVitae(props, context) {
   // set language
@@ -95,7 +96,9 @@ function CurriculumVitae(props, context) {
           <TitleBar title={words.title}
             controls onCloseClick={()=>{context.router.push('/');}} />
           <Box padding="5px 10px" height="98%" margin="0 2px">
-            <Profiles msg={words.profiles} />
+            <Scrollbars autoHide={true}>
+              <Profiles msg={words.profiles} />
+            </Scrollbars>
           </Box>
           <Box padding="5px 10px" height="98%" margin="0 2px">
             <SegmentedControl height='100%' style={{overflowX: 'hidden', overflowY: 'auto'}}>

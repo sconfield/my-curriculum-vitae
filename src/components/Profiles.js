@@ -29,7 +29,7 @@ function Profiles(props) {
   );
 
   return (
-    <div className={styles.normal} style={{overflowX: 'hidden', overflowY: 'auto'}}>
+    <div className={styles.normal}>
       <h3>{kk.contact}</h3>
       {createItem(kk.phone, '15523887372')}
       {createItem(kk.wechat, 'sconfield')}
