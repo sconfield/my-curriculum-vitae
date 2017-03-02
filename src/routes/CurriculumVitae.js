@@ -101,9 +101,11 @@ function CurriculumVitae(props, context) {
             </Scrollbars>
           </Box>
           <Box padding="5px 10px" height="98%" margin="0 2px">
-            <SegmentedControl height='100%' style={{overflowX: 'hidden', overflowY: 'auto'}}>
-              {words.careers.map(createTab)}
-            </SegmentedControl>
+            <Scrollbars autoHide={true}>
+              <SegmentedControl>
+                {words.careers.map(createTab)}
+              </SegmentedControl>
+            </Scrollbars>
           </Box>
           <Box padding="5px 10px" height="98%" margin="0 2px">
             <Button onClick={putCards}>{words.putBtnName}</Button>
