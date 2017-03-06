@@ -23,8 +23,14 @@
 
   position: absolute;
   z-index: 2;
-  perspective: 800px;
+  perspective: 800;
   transition: all .8s;
+
+  -ms-perspective: 800;
+  -webkit-perspective: 800;
+  -o-perspective: 800;
+  -moz-perspective: 800;
+
 
   -ms-transition: all .8s;
   -webkit-transition: all .8s;
@@ -92,6 +98,11 @@
 
 .stageBox .stage {
   backface-visibility: hidden;
+
+  -ms-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 .stageFront .stageBox {
