@@ -31,7 +31,14 @@ const _half_y = rootDom.offsetHeight / 2 * 0.8;
 let originalPlaces = [];
 
 const putAnyWhere = (card)=>{
-  card.putWhere['transform'] = 'rotate('+Math.random()*360+'deg)';
+  const rtt = 'rotate('+Math.random()*360+'deg)';
+  card.putWhere['transform'] = rtt;
+
+  card.putWhere['MsTransform'] = rtt;
+  card.putWhere['WebkitTransform'] = rtt;
+  card.putWhere['OTransform'] = rtt;
+  card.putWhere['MozTransform'] = rtt;
+
   const anyOne = Math.random();
   const anyTwo = Math.random();
   let _any_x, _any_y;
@@ -303,7 +310,7 @@ export default {
         },
         {
           name: 'javascript',
-          desc: '这个东西不简单，现在追求能够用优雅的代码实现功能。',
+          desc: '这个东西不简单，现在追求写出优雅易读且易维护的代码',
           url: javascript
         },
         {
@@ -609,7 +616,7 @@ export default {
         },
         {
           name: 'javascript',
-          desc: '这个东西不简单，现在追求能够用优雅的代码实现功能。',
+          desc: '这个东西不简单，现在追求写出优雅易读且易维护的代码',
           url: javascript
         },
         {
@@ -703,6 +710,12 @@ export default {
             top: 60 + 27*count + 'px',
             left: _half_x*2 - 150*line - (_half_x*2/3 - 330)/2 + 'px',
             transform: 'rotate(0deg)',
+
+            MsTransform: 'rotate(0deg)',
+            WebkitTransform: 'rotate(0deg)',
+            OTransform: 'rotate(0deg)',
+            MozTransform: 'rotate(0deg)',
+
             zIndex: 10 + i
           }
         };
@@ -761,7 +774,12 @@ export default {
       newCenterCard.putWhere = {
         top: _half_y - 135 + 'px',
         left: _half_x - 135 + 'px',
-        transform: 'rotate(0deg)'
+        transform: 'rotate(0deg)',
+
+        MsTransform: 'rotate(0deg)',
+        WebkitTransform: 'rotate(0deg)',
+        OTransform: 'rotate(0deg)',
+        MozTransform: 'rotate(0deg)'
       };
       return {...state};
     },

@@ -10,6 +10,12 @@
   height: 100%; /* safari bug */
 }
 
+@keyframes cardBackFont {
+  0% { color: black; }
+  25% { color: red; }
+  100% { color: blue; }
+}
+
 .card {
   margin: auto;
   height: 177px;
@@ -19,6 +25,11 @@
   z-index: 2;
   perspective: 800px;
   transition: all .8s;
+
+  -ms-transition: all .8s;
+  -webkit-transition: all .8s;
+  -o-transition: all .8s;
+  -moz-transition: all .8s;
 }
 
 .card .stage {
@@ -32,6 +43,11 @@
   z-index: 999;
   height: 270px;
   width: 270px;
+
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
 }
 
 .stageBox {
@@ -42,16 +58,36 @@
   transform-style: preserve-3d;
   transition: all .6s;
   box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+
+  -ms-transition: all .6s;
+  -webkit-transition: all .6s;
+  -o-transition: all .6s;
+  -moz-transition: all .6s;
 }
 
 .stageBox .cardFront {
   transform: rotateY(0deg);
   background-color: #e1f5fe !important;
+
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
 }
 
 .stageBox .cardBack {
   transform: rotateY(180deg);
   background-color: #cfd8dc !important;
+
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 
 .stageBox .stage {
@@ -60,10 +96,26 @@
 
 .stageFront .stageBox {
   transform: rotateY(0deg);
+
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
 }
 
 .stageBack .stageBox {
   transform: rotateY(180deg);
+
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+
+  animation: cardBackFont 5s;
+  -ms-animation: cardBackFont 5s;
+  -webkit-animation: cardBackFont 5s;
+  -o-animation: cardBackFont 5s;
+  -moz-animation: cardBackFont 5s;
 }
 
 .card h3 {
