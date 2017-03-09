@@ -11,5 +11,5 @@ html, body, :global(#root) {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', sans-serif;
 }
